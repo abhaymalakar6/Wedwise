@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register as Customer - WedWise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lora&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="register-customer.css" />
+</head>
+<body>
+  <div class="register-container">
+    <div class="form-wrapper">
+      <h1>Customer Registration</h1>
+      <p>Create your account to start planning your dream wedding with us!</p>
+      
+      <form id="customerRegisterForm">
+  <input type="text" name="fullName" placeholder="Full Name" required />
+  <input type="email" name="email" placeholder="Email Address" required />
+  <input type="tel" name="phone" id="phoneInput" placeholder="Phone Number" required />
+  <div id="otpSection" style="display: none;">
+    <input type="text" name="otp" id="otpInput" placeholder="Enter OTP" required />
+    <button type="button" id="verifyOtpButton">Verify OTP</button>
+  </div>
+  <input type="password" name="password" placeholder="Password" required />
+  <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+  <button type="submit" id="submitButton">Register</button>
+  <p class="login-redirect">Already have an account? <a href="login.html">Login here</a></p>
+</form>
+
+    </div>
+
+    <div class="image-side">
+      <img src="l-1.jpg" alt="Wedding Couple" />
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("customerRegisterForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Registered successfully as a Customer!");
+      // You can add redirection or API integration here.
+    });
+  </script>
+</body>
+</html>

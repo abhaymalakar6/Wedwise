@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Decor - WedWise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lora&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="decor.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">WED<span>WISE</span></div>
+  </header>
+
+  <section class="booking-section">
+    <h1>Select Your State & City</h1>
+    <p>Find and book the best wedding decor services in your selected city.</p>
+
+    <!-- State Selection -->
+    <select id="state-select">
+      <option value="">-- Choose State --</option>
+      <option value="madhya-pradesh">Madhya Pradesh</option>
+      <option value="maharashtra">Maharashtra</option>
+    </select>
+
+    <!-- City Selection -->
+    <select id="city-select" disabled>
+      <option value="">-- Choose City --</option>
+    </select>
+
+    <!-- Decor Services List -->
+    <div id="decor-list" class="decor-grid"></div>
+  </section>
+
+  <!-- Modal Structure -->
+  <div id="decor-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <div class="modal-header">
+        <h2 id="modal-decor-name"></h2>
+        <span id="modal-decor-rating"></span>
+      </div>
+      <img id="modal-decor-image" class="modal-decor-image" />
+      <p id="modal-decor-description"></p>
+      <p><strong>Price: </strong><span id="modal-decor-price"></span></p>
+      <p><strong>Features: </strong><span id="modal-decor-features"></span></p>
+      <button class="book-now-btn">Book Now</button>
+    </div>
+  </div>
+
+  <script src="decor.js"></script>
+</body>
+</html>

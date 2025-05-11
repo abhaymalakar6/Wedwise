@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register as Vendor - WedWise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lora&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="register-vendor.css" />
+</head>
+<body>
+  <div class="register-container">
+    <div class="form-wrapper">
+      <h1>Vendor Registration</h1>
+      <p>Join WedWise and reach thousands of wedding clients!</p>
+      
+      <form id="vendorRegisterForm">
+        <input type="email" placeholder="Business Email" required />
+        <input type="tel" placeholder="Contact Number" required />
+        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+        
+        <button type="submit" onclick="window.location.href='vendor-profile.html'">Register</button>
+        <p class="login-redirect">Already have an account? <a href="login.html">Login here</a></p>
+      </form>
+    </div>
+
+    <div class="image-side">
+      <img src="l-2.jpg" alt="Vendor Working" />
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("vendorRegisterForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Registered successfully as a Vendor!");
+      // API or backend handling can be added here.
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Venues - WedWise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lora&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="venue.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">WED<span>WISE</span></div>
+  </header>
+
+  <section class="booking-section">
+    <h1>Select Your State & City</h1>
+    <p>Find and book the best wedding venues in your selected city.</p>
+
+    <!-- State Selection -->
+    <select id="state-select">
+      <option value="">-- Choose State --</option>
+      <option value="madhya-pradesh">Madhya Pradesh</option>
+      <option value="maharashtra">Maharashtra</option>
+    </select>
+
+    <!-- City Selection -->
+    <select id="city-select" disabled>
+      <option value="">-- Choose City --</option>
+    </select>
+
+    <!-- Venues List -->
+    <div id="venue-list" class="venue-grid"></div>
+  </section>
+<!-- Modal Structure -->
+<div id="venue-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-modal" class="close">&times;</span>
+    <div class="modal-header">
+      <h2 id="modal-venue-name"></h2>
+      <span id="modal-venue-rating"></span>
+    </div>
+   <div class="modal-carousel">
+  <div class="carousel-track" id="carousel-track"></div>
+  <button class="carousel-btn prev" id="prev-btn">&#10094;</button>
+  <button class="carousel-btn next" id="next-btn">&#10095;</button>
+</div>
+
+    <p id="modal-venue-description"></p>
+    <p><strong>Price: </strong><span id="modal-venue-price"></span></p>
+    <p><strong>Features: </strong><span id="modal-venue-features"></span></p>
+  </div>
+</div>
+<!-- Booking Modal -->
+<div id="booking-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-booking-modal" class="close">&times;</span>
+    <h2>Book Venue</h2>
+    <form id="booking-form">
+      <input type="text" id="user-name" placeholder="Your Name" required />
+      <input type="email" id="user-email" placeholder="Email" required />
+      <input type="date" id="event-date" required />
+      <input type="number" id="guest-count" placeholder="Number of Guests" required />
+      <button type="submit">Proceed to Payment</button>
+    </form>
+  </div>
+</div>
+
+  <script src="venue.js"></script>
+</body>
+</html>

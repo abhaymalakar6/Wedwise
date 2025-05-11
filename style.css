@@ -1,0 +1,341 @@
+/* =========================
+    Base Styles
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #FAF9F6;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: #222;
+}
+
+
+p {
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #006C70;
+}
+
+/* =========================
+    Header & Navigation
+========================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: #fff;
+    border-bottom: 2px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    color: #000;
+}
+
+.logo span {
+    color: #006C70;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+.nav-links a {
+    font-weight: 600;
+    transition: border-bottom 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #006C70;
+    border-bottom: 2px solid #006C70;
+}
+
+.auth-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #006C70;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-buttons button:hover {
+    opacity: 0.85;
+}
+
+/* =========================
+    Hero Section
+========================= */
+.hero {
+    text-align: center;
+    padding: 140px 20px;
+    background: url('bg.jpg') no-repeat center/cover;
+    color: white;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+}
+
+.hero * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+/* =========================
+    Services Section
+========================= */
+.services {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.services h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.service-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-item {
+    background: #FAF9F6;
+    padding: 20px;
+    border-radius: 12px;
+    width: 260px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: scale(1.05);
+}
+
+.service-item img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.service-item h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.service-item a {
+    color: #006C70;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 10px;
+}
+/* =========================
+    CTA Buttons
+========================= */
+.view-all {
+    color: #fff;
+    background: #006C70;
+    margin: 30px auto 0;
+    padding: 12px 24px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-all:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+/* =========================
+    Plan Wedding Section
+========================= */
+.plan-wedding {
+    text-align: center;
+    padding: 80px 20px;
+    background: #F7F6F4;
+}
+
+.plan-wedding h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.plan-wedding p {
+    margin-bottom: 25px;
+}
+
+.start-planning,
+.for-vendors {
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.start-planning {
+    background: #006C70;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.start-planning:hover {
+    transform: scale(1.05);
+}
+
+.for-vendors {
+    background: transparent;
+    color: #006C70;
+    border: 2px solid #006C70;
+}
+
+.for-vendors:hover {
+    background: #006C70;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* =========================
+    Footer
+========================= */
+footer {
+    background: #030535;
+    color: white;
+    padding: 30px 90px;
+    text-align: center;
+}
+
+.footer-bottom a {
+    color: #D4AF37;
+    margin: 0 8px;
+}
+
+/* =========================
+    Responsive Design
+========================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+        flex-direction: row;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .service-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .start-planning,
+    .for-vendors {
+        width: 90%;
+    }
+
+    .view-all {
+        width: 90%;
+    }
+
+    footer {
+        padding: 20px;
+    }
+}
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero {
+        padding: 100px 15px;
+    }
+}

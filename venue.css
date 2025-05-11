@@ -1,0 +1,297 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Lora', serif;
+    background: #faf9f6;
+    color: #333;
+  }
+
+  header.main-header {
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .logo span {
+    color: #006C70;
+  }
+
+  .nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #006C70;
+  }
+
+  .booking-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .booking-section h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    color: #006C70;
+    margin-bottom: 10px;
+  }
+
+  .booking-section p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #555;
+  }
+
+  select {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 40px;
+    width: 200px;
+  }
+
+  #venue-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .venue-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    text-align: left;
+  }
+
+  .venue-card:hover {
+    transform: scale(1.03);
+  }
+
+  .venue-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .venue-card p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .venue-card button {
+    background: #D4AF37;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .venue-card button:hover {
+    background: #c19e34;
+  }
+  .venue-card h3 {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .venue-features {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+
+  .venue-features span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .venue-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+  #booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  #booking-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  #booking-form button {
+    background: #006C70;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  #booking-form button:hover {
+    background: #004f52;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .venue-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+    }
+  }
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background */
+    overflow: auto;
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 900px;
+    position: relative;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .modal-header h2 {
+    font-size: 28px;
+    margin: 0;
+  }
+
+  .modal-header span {
+    font-size: 18px;
+    color: #D4AF37;
+  }
+
+  .modal-venue-image {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .modal p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .close:hover {
+    color: #D4AF37;
+  }
+.modal-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  height: 100%;
+}
+
+.carousel-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}

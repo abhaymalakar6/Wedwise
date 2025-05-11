@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Photographers - WedWise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lora&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="photographer.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">WED<span>WISE</span></div>
+  </header>
+
+  <section class="booking-section">
+    <h1>Select Your State & City</h1>
+    <p>Find and book the best wedding photographers in your selected city.</p>
+
+    <select id="photographer-state">
+  <option value="">-- Choose State --</option>
+  <option value="madhya-pradesh">Madhya Pradesh</option>
+  <option value="maharashtra">Maharashtra</option>
+</select>
+
+<select id="photographer-city" disabled>
+  <option value="">-- Choose City --</option>
+</select>
+
+<div id="photographer-list">
+  <!-- Photographer cards will be dynamically added here -->
+</div>
+
+  </section>
+
+  <script src="photographer.js"></script>
+</body>
+</html>

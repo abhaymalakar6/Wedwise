@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Catering - WedWise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lora&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="catering.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">WED<span>WISE</span></div>
+  </header>
+  <section class="booking-section">
+    <h1>Select Your State & City</h1>
+    <p>Book premium wedding catering services in your selected city.</p>
+
+    <select id="state-select">
+      <option value="">-- Choose State --</option>
+      <option value="madhya-pradesh">Madhya Pradesh</option>
+      <option value="maharashtra">Maharashtra</option>
+    </select>
+
+    <select id="city-select" disabled>
+      <option value="">-- Choose City --</option>
+    </select>
+
+    <div id="catering-list" class="venue-grid"></div>
+  </section>
+
+  <!-- Modal -->
+  <div id="catering-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <div class="modal-header">
+        <h2 id="modal-cater-name"></h2>
+        <span id="modal-cater-rating"></span>
+      </div>
+      <img id="modal-cater-image" class="modal-venue-image" />
+      <p id="modal-cater-description"></p>
+      <p><strong>Price: </strong><span id="modal-cater-price"></span></p>
+      <p><strong>Specialties: </strong><span id="modal-cater-specialties"></span></p>
+    </div>
+  </div>
+
+  <script src="catering.js"></script>
+</body>
+</html>
