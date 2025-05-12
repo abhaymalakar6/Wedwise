@@ -288,3 +288,40 @@ select:hover {
   border-color: #006C70;
   background-color: #f2fdfa;
 }
+@media (max-width: 768px) {
+  .venue-card {
+    flex-direction: column;
+  }
+
+  .venue-card-left,
+  .venue-card-right {
+    width: 100%;
+  }
+
+  .venue-card-left {
+    max-height: 200px;
+  }
+
+  .venue-card-left img {
+    height: 100%;
+  }
+
+  .venue-card-right {
+    padding: 10px;
+  }
+
+  .venue-card-right h3 {
+    font-size: 1rem;
+  }
+
+  .venue-card-right p,
+  .venue-features {
+    font-size: 0.85rem;
+  }
+
+  button.view-details-btn,
+  button.book-now-btn {
+    font-size: 0.85rem;
+    width: 100%;
+  }
+}
