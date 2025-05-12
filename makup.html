@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Makeup Artists - WedWise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lora&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="makup.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">WED<span>WISE</span></div>
+  </header>
+
+  <section class="booking-section">
+    <h1>Select Your State & City</h1>
+    <p>Find and book the best makeup artists in your selected city.</p>
+
+    <select id="makeup-artist-state">
+      <option value="">-- Choose State --</option>
+      <option value="madhya-pradesh">Madhya Pradesh</option>
+      <option value="maharashtra">Maharashtra</option>
+    </select>
+
+    <select id="makeup-artist-city" disabled>
+      <option value="">-- Choose City --</option>
+    </select>
+
+    <div id="makeup-artist-list">
+      <!-- Makeup artist cards will be dynamically added here -->
+    </div>
+
+  </section>
+
+  <script src="makup.js"></script>
+</body>
+</html>

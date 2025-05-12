@@ -183,6 +183,128 @@ nav ul li {
     display: inline-block;
     margin-top: 10px;
 }
+.testimonials {
+    background: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-family: 'Cinzel', serif;
+    color: #111;
+}
+
+.testimonial-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 320px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+    position: relative;
+}
+
+.testimonial-card .quote-mark {
+    font-size: 32px;
+    color: #006C70;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.testimonial-card p {
+    font-style: normal;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.testimonial-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+.testimonial-card small {
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .testimonial-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-card {
+        max-width: 90%;
+    }
+}
+.why-wedwise {
+    text-align: center;
+    padding: 80px 20px;
+    background: #fff;
+}
+
+.why-wedwise h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-family: 'Cinzel', serif;
+    color: #111;
+}
+
+.why-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.why-card {
+    flex: 1 1 220px;
+    max-width: 260px;
+    background: #f5f5f5;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+}
+
+.why-card img {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.why-card p {
+    font-size: 16px;
+    color: #111;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .why-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .why-card {
+        width: 90%;
+    }
+}
+
 /* =========================
     CTA Buttons
 ========================= */
@@ -261,7 +383,7 @@ nav ul li {
     Footer
 ========================= */
 footer {
-    background: #030535;
+    background: #030532;
     color: white;
     padding: 30px 90px;
     text-align: center;
@@ -270,6 +392,81 @@ footer {
 .footer-bottom a {
     color: #D4AF37;
     margin: 0 8px;
+}
+.site-footer {
+    background-color: #006C70;
+    color: #fff;
+    padding: 40px 60px;
+    font-family: 'Lora', serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-column h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.footer-column p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.footer-bottom-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+.footer-bottom-links a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-bottom-links a:hover {
+    color: #fff;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ccc;
 }
 
 /* =========================
