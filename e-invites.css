@@ -1,0 +1,116 @@
+body {
+  font-family: 'Lora', serif;
+  background: #fffdfa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Main Section Styling */
+.invite-section {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* Container to split image and text */
+.invite-container {
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+/* Left Side Image */
+.invite-image-container {
+  flex: 1;
+  min-width: 300px;
+  background: #fdf8f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.invite-image {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Right Side Content */
+.invite-text {
+  flex: 2;
+  padding: 30px;
+  text-align: left;
+}
+
+.invite-text h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 40px;
+  color: #006C70;
+  margin-bottom: 10px;
+}
+
+.invite-text p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  resize: none;
+}
+
+button {
+  padding: 12px;
+  background: linear-gradient(to right, #007778, #005f60);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #004f52;
+}
+
+.whatsapp-icon {
+  width: 20px;
+  margin-right: 10px;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .invite-container {
+    flex-direction: column;
+  }
+
+  .invite-text {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .invite-image-container {
+    padding: 20px;
+  }
+}

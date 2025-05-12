@@ -6,6 +6,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Lora', serif;
@@ -97,13 +100,16 @@ nav ul li {
     opacity: 0.85;
 }
 
+
+
+
 /* =========================
     Hero Section
 ========================= */
 .hero {
     text-align: center;
     padding: 190px 20px;
-    background: url('bc2.jpg') no-repeat center/cover;
+    background: url('bc2\ \(1\).jpg') no-repeat center/cover;
     color: white;
     position: relative;
 }
@@ -127,6 +133,12 @@ nav ul li {
     color: white;
     font-size: 48px;
     margin-bottom: 20px;
+}
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #006C70;
 }
 /* =========================
     Services Section
@@ -535,4 +547,8 @@ footer {
     .hero {
         padding: 100px 15px;
     }
+}
+:root {
+    --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --hover-scale: scale(1.05);
 }
