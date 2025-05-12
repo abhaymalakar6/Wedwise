@@ -1,9 +1,11 @@
+// JavaScript (with layout update for side-by-side venue details)
 const venues = {
   "madhya-pradesh": {
     indore: [
       {
         name: "Radisson Blu Hotel",
-        description: "Radisson Blu Hotel, Indore is a grand five-star property, a luxurious venue to host your friends and family.",
+        description:
+          "Radisson Blu Hotel, Indore is a grand five-star property, a luxurious venue to host your friends and family.",
         price: "6,500",
         rating: 4.7,
         features: ["Royal Decor", "Accommodation: 200", "In-house Catering"],
@@ -11,14 +13,14 @@ const venues = {
       },
       {
         name: "Ashokraj Resort And Farms",
-        description: "Ashokraj Resort And Farms, Indore, is a wedding venue personifying brilliance.",
+        description:
+          "Ashokraj Resort And Farms, Indore, is a wedding venue personifying brilliance.",
         price: "5,800",
         rating: 4.5,
         features: ["Banquet Hall", "Accommodation: 150", "Outdoor Space"],
         images: ["Ashokraj1.jpg", "Ashokraj2.jpg"]
       }
     ]
-    // Add other cities similarly...
   }
 };
 
@@ -28,7 +30,6 @@ const venueList = document.getElementById("venue-list");
 
 const modal = document.getElementById("venue-modal");
 const closeModal = document.getElementById("close-modal");
-
 const modalVenueName = document.getElementById("modal-venue-name");
 const modalVenueRating = document.getElementById("modal-venue-rating");
 const modalVenueDescription = document.getElementById("modal-venue-description");
@@ -53,13 +54,12 @@ stateSelect.addEventListener("change", () => {
 
   if (state && venues[state]) {
     citySelect.disabled = false;
-
-    Object.keys(venues[state]).forEach(city => {
+    Object.keys(venues[state]).forEach((city) => {
       const option = document.createElement("option");
       option.value = city;
       option.textContent = city
         .split("-")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ");
       citySelect.appendChild(option);
     });
@@ -74,36 +74,35 @@ citySelect.addEventListener("change", () => {
   venueList.innerHTML = "";
 
   if (state && city && venues[state][city]) {
-    venues[state][city].forEach(venue => {
+    venues[state][city].forEach((venue) => {
       const card = document.createElement("div");
       card.className = "venue-card";
 
-      const featureList = venue.features.map(feature => `<span>${feature}</span>`).join(" · ");
-      const cardImage = venue.images?.[0]
-        ? `<img src="${venue.images[0]}" alt="${venue.name}" class="venue-image" />`
-        : "";
+      const featureList = venue.features.map((f) => `<span>${f}</span>`).join(" · ");
 
       card.innerHTML = `
-        ${cardImage}
-        <h3>${venue.name} <span style="float:right; font-size:14px;">⭐ ${venue.rating}</span></h3>
-        <p>${venue.description}</p>
-        <p><strong>Starting from:</strong> ₹${venue.price}</p>
-        <p class="venue-features">${featureList}</p>
-        <button class="view-details-btn">View Details</button>
-        <button class="book-now-btn" style="margin-top: 10px; background:#006C70;">Book Now</button>
+        <div class="venue-card-left">
+          <img src="${venue.images[0]}" alt="${venue.name}" />
+        </div>
+        <div class="venue-card-right">
+          <h3>${venue.name} <span>⭐ ${venue.rating}</span></h3>
+          <p>${venue.description}</p>
+          <p><strong>Starting from:</strong> ₹${venue.price}</p>
+          <p class="venue-features">${featureList}</p>
+          <button class="view-details-btn">View Details</button>
+          <button class="book-now-btn" style="margin-top: 10px; background:#006C70;">Book Now</button>
+        </div>
       `;
 
-      const viewButton = card.querySelector(".view-details-btn");
-      viewButton.addEventListener("click", () => {
+      card.querySelector(".view-details-btn").addEventListener("click", () => {
         modalVenueName.textContent = venue.name;
         modalVenueRating.textContent = `⭐ ${venue.rating}`;
         modalVenueDescription.textContent = venue.description;
         modalVenuePrice.textContent = `₹${venue.price}`;
         modalVenueFeatures.textContent = venue.features.join(", ");
 
-        // Populate carousel
         carouselTrack.innerHTML = "";
-        venue.images.forEach(imgSrc => {
+        venue.images.forEach((imgSrc) => {
           const img = document.createElement("img");
           img.src = imgSrc;
           carouselTrack.appendChild(img);
@@ -114,16 +113,13 @@ citySelect.addEventListener("change", () => {
         modal.style.display = "block";
       });
 
-      const bookNowBtn = card.querySelector(".book-now-btn");
-      bookNowBtn.addEventListener("click", () => {
+      card.querySelector(".book-now-btn").addEventListener("click", () => {
         selectedVenue = venue.name;
         bookingModal.style.display = "block";
       });
 
       venueList.appendChild(card);
     });
-
-    venueList.scrollIntoView({ behavior: "smooth" });
   } else {
     venueList.innerHTML = "<p>No venues available in this city yet.</p>";
   }
@@ -150,35 +146,24 @@ nextBtn.addEventListener("click", () => {
 });
 
 window.addEventListener("resize", updateCarousel);
+closeModal.addEventListener("click", () => (modal.style.display = "none"));
+closeBookingModal.addEventListener("click", () => (bookingModal.style.display = "none"));
 
-// Modal close
-closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-closeBookingModal.addEventListener("click", () => {
-  bookingModal.style.display = "none";
-});
-
-// Click outside to close
 window.addEventListener("click", (event) => {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-  if (event.target === bookingModal) {
-    bookingModal.style.display = "none";
-  }
+  if (event.target === modal) modal.style.display = "none";
+  if (event.target === bookingModal) bookingModal.style.display = "none";
 });
 
-// Booking form submit
 bookingForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
   const name = document.getElementById("user-name").value;
   const email = document.getElementById("user-email").value;
   const date = document.getElementById("event-date").value;
   const guests = document.getElementById("guest-count").value;
 
-  alert(`✅ Booking Confirmed!\n\nVenue: ${selectedVenue}\nName: ${name}\nEmail: ${email}\nDate: ${date}\nGuests: ${guests}`);
+  alert(
+    `✅ Booking Confirmed!\n\nVenue: ${selectedVenue}\nName: ${name}\nEmail: ${email}\nDate: ${date}\nGuests: ${guests}`
+  );
 
   bookingModal.style.display = "none";
   bookingForm.reset();

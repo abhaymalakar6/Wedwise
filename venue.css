@@ -81,72 +81,61 @@
     gap: 30px;
   }
 
-  .venue-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    width: 280px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-    text-align: left;
-  }
+  /* Venue Card Layout */
+.venue-card {
+  display: flex;
+  gap: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
 
-  .venue-card:hover {
-    transform: scale(1.03);
-  }
+.venue-card-left img {
+  width: 250px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 8px;
+}
 
-  .venue-card h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
+.venue-card-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .venue-card p {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 15px;
-  }
+.venue-card-right h3 {
+  margin: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 
-  .venue-card button {
-    background: #D4AF37;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s ease;
-  }
+.venue-card-right p {
+  margin: 6px 0;
+}
 
-  .venue-card button:hover {
-    background: #c19e34;
-  }
-  .venue-card h3 {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Cinzel', serif;
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
+.venue-card-right .venue-features {
+  font-size: 14px;
+  color: #555;
+}
 
-  .venue-features {
-    font-size: 14px;
-    color: #666;
-    margin: 10px 0;
-    line-height: 1.6;
-  }
+.venue-card-right button {
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px;
+}
 
-  .venue-features span {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  .venue-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 15px;
-  }
+.venue-card-right button:hover {
+  background-color: #0056b3;
+}
   #booking-form {
     display: flex;
     flex-direction: column;
@@ -203,7 +192,7 @@
 
   .modal-content {
     background-color: #fff;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border-radius: 8px;
     width: 80%;
@@ -294,4 +283,8 @@
 
 .carousel-btn.next {
   right: 10px;
+}
+select:hover {
+  border-color: #006C70;
+  background-color: #f2fdfa;
 }
