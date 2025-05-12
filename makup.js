@@ -2,20 +2,20 @@ const makeupArtists = {
   "madhya-pradesh": {
     indore: [
       {
-        name: "Glamour Artistry",
+        name: "Gauraiya Makeover",
         description: "Transforming your beauty with expert makeup techniques.",
         experience: "6 years",
-        price: "10,000",
-        rating: 4.7,
-        image: "m-1.jpg"
+        price: "20,000",
+        rating: 5.7,
+        image: "makeup1.webp"
       },
       {
-        name: "Radiance Makeup Studio",
+        name: "Tabbu Makeover",
         description: "Bringing out your natural beauty with precision and elegance.",
         experience: "4 years",
-        price: "8,000",
+        price: "11,000",
         rating: 4.6,
-        image: "m-2.jpg"
+        image: "makeup2.webp"
       }
     ],
     bhopal: [
@@ -25,7 +25,7 @@ const makeupArtists = {
         experience: "5 years",
         price: "9,500",
         rating: 4.8,
-        image: "m-3.jpg"
+        image: "makeup3.avif" 
       }
     ]
   },
