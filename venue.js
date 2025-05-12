@@ -8,7 +8,7 @@ const venues = {
         pricePerGuest: 650,
         rating: 4.7,
         features: ["Royal Decor", "Accommodation: 200", "In-house Catering"],
-        images: ["radison.jpeg", "Ashokraj.jpg", "radison3.jpg"]
+        images: ["radison.jpeg", "radison2.jpg", "radison3.jpg"]
       },
       {
         name: "Ashokraj Resort And Farms",
@@ -17,29 +17,47 @@ const venues = {
         pricePerGuest: 580,
         rating: 4.5,
         features: ["Banquet Hall", "Accommodation: 150", "Outdoor Space"],
-        images: ["Ashokraj.jpg", "Ashokraj2.jpg"]
+        images: ["ashok1.jpg", "ashok2.jpg"]
+      },
+       {
+        name: "Sayaji Hotel",
+        description:
+          "Sayaji Hotel, Indore, is a luxurious venue to celebrate your milestones in the presence of your near and dear ones",
+        pricePerGuest: 800,
+        rating: 5.0,
+        features: ["Banquet Hall", "Accommodation: 150", "Outdoor Space"],
+        images: ["sayaji.jpg", "sayaji1.jpg"]
+      },
+       {
+        name: "Lemon Tree Hotel",
+        description:
+          "Lemon Tree Hotel in Indore offers family rooms with air-conditioning, private bathrooms, and modern amenities",
+        pricePerGuest: 720,
+        rating: 4.8,
+        features: ["Royal Outdoor", "Accommodation: 150", "Outdoor Space"],
+        images: ["lemon1.jpg", "lemon2.jpg"]
       }
     ]
   },
     "maharashtra": {
     mumbai: [
       {
-        name: "Radisson Blu Hotel",
+        name: "The LaLiT Mumbai",
         description:
-          "Radisson Blu Hotel, Indore is a grand five-star property, a luxurious venue to host your friends and family.",
-        pricePerGuest: 650,
-        rating: 4.7,
+          "Enjoy luxury at The LaLiT Mumbai, with a stunning atrium lobby, a spa with 9 treatment rooms, and a rooftop restaurant.",
+        pricePerGuest: 750,
+        rating: 4.6,
         features: ["Royal Decor", "Accommodation: 200", "In-house Catering"],
-        images: ["radison.jpeg", "Ashokraj.jpg", "radison3.jpg"]
+        images: ["lalit1.webp", "lalit2.webp"]
       },
       {
-        name: "Ashokraj Resort And Farms",
+        name: "Sahara Star Hotel",
         description:
-          "Ashokraj Resort And Farms, Indore, is a wedding venue personifying brilliance.This venue is perfect for hosting any kind of event filled with grandiose.",
+          "Sahara Star offers solo travelers a unique stay with a stunning marine aquarium, tropical lagoon vibes.",
         pricePerGuest: 580,
-        rating: 4.5,
+        rating: 4.2,
         features: ["Banquet Hall", "Accommodation: 150", "Outdoor Space"],
-        images: ["Ashokraj.jpg", "Ashokraj2.jpg"]
+         images: ["sahara.webp", "sahara2.webp"]
       }
     ]
   }
@@ -107,7 +125,7 @@ citySelect.addEventListener("change", () => {
           <img src="${venue.images[0]}" alt="${venue.name}" />
         </div>
         <div class="venue-card-right">
-          <h3>${venue.name} <span>⭐ ${venue.rating}</span></h3>
+          <h3>${venue.name} <span><span>⭐ ${venue.rating}</span></h3>
           <p>${venue.description}</p>
           <p><strong>Price per guest:</strong> ₹${venue.pricePerGuest}</p>
           <p class="venue-features">${featureList}</p>

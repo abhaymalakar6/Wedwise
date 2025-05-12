@@ -15,11 +15,22 @@
       
       <form id="vendorRegisterForm">
         <input type="email" placeholder="Business Email" required />
-        <input type="tel" placeholder="Contact Number" required />
+        
+        <div class="phone-otp-wrapper">
+          <input type="tel" name="phone" id="phoneInput" placeholder="Phone Number" required />
+          <button type="button" id="sendOtpButton">Send OTP</button>
+        </div>
+
+        <!-- OTP Section (hidden initially) -->
+        <div id="otpSection" style="display: none;">
+          <input type="text" id="otpInput" placeholder="Enter OTP" required />
+          <button type="button" id="verifyOtpButton">Verify OTP</button>
+        </div>
+
         <input type="password" placeholder="Password" required />
         <input type="password" placeholder="Confirm Password" required />
         
-        <button type="submit" onclick="window.location.href='vendor-profile.html'">Register</button>
+        <button type="submit" id="submitButton" disabled>Register</button>
         <p class="login-redirect">Already have an account? <a href="login.html">Login here</a></p>
       </form>
     </div>
@@ -30,10 +41,57 @@
   </div>
 
   <script>
+    let generatedOTP = "";
+    let otpVerified = false;
+
+    document.getElementById("sendOtpButton").addEventListener("click", function () {
+      const phone = document.getElementById("phoneInput").value.trim();
+      if (!phone || phone.length < 10) {
+        alert("Please enter a valid phone number.");
+        return;
+      }
+
+      // Simulate OTP generation and display the section
+      generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+      console.log("Generated OTP (for testing):", generatedOTP); // In production, remove this.
+
+      document.getElementById("otpSection").style.display = "flex";
+      alert("OTP sent successfully!");
+    });
+
+    document.getElementById("verifyOtpButton").addEventListener("click", function () {
+      const enteredOTP = document.getElementById("otpInput").value.trim();
+      if (enteredOTP === generatedOTP) {
+        otpVerified = true;
+        alert("OTP Verified Successfully!");
+        document.getElementById("submitButton").disabled = false;
+      } else {
+        alert("Incorrect OTP. Please try again.");
+        otpVerified = false;
+        document.getElementById("submitButton").disabled = true;
+      }
+    });
+
     document.getElementById("vendorRegisterForm").addEventListener("submit", function (e) {
       e.preventDefault();
+
+      if (!otpVerified) {
+        alert("Please verify your OTP before registering.");
+        return;
+      }
+
+      const password = document.querySelector('input[type="password"]:nth-of-type(1)').value;
+      const confirmPassword = document.querySelector('input[type="password"]:nth-of-type(2)').value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Final success
       alert("Registered successfully as a Vendor!");
-      // API or backend handling can be added here.
+      // Redirect or API call goes here
+      window.location.href = 'vendor-profile.html';
     });
   </script>
 </body>

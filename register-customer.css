@@ -74,6 +74,22 @@ form button {
 form button:hover {
   background-color: #004E53;
 }
+#otpSection {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  #otpSection {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+#otpInput {
+  flex: 1;
+}
 
 .login-redirect {
   margin-top: 15px;
@@ -114,5 +130,40 @@ form button:hover {
 
   .form-wrapper {
     padding: 30px 20px;
+  }
+}
+.phone-otp-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.phone-otp-wrapper input {
+  width: 100%;
+  padding-right: 110px; /* Space for button inside */
+}
+
+.phone-otp-wrapper button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: #006C70;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.phone-otp-wrapper button:hover {
+  background-color: #004E53;
+}
+
+@media (max-width: 480px) {
+  .phone-otp-wrapper button {
+    font-size: 12px;
+    padding: 6px 10px;
   }
 }
