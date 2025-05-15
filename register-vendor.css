@@ -116,6 +116,7 @@ form button:hover {
     padding: 30px 20px;
   }
 }
+
 .phone-otp-wrapper {
   position: relative;
   display: flex;
@@ -124,9 +125,9 @@ form button:hover {
 
 .phone-otp-wrapper input {
   width: 100%;
-  padding-right: 110px; /* Space for button inside */
+  padding-right: 110px; 
 }
-
+/* 
 .phone-otp-wrapper button {
   position: absolute;
   right: 5px;
@@ -150,4 +151,4 @@ form button:hover {
     font-size: 12px;
     padding: 6px 10px;
   }
-}
+}*/

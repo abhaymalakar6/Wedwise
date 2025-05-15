@@ -13,7 +13,7 @@ const venues = {
       {
         name: "Ashokraj Resort And Farms",
         description:
-          "Ashokraj Resort And Farms, Indore, is a wedding venue personifying brilliance.This venue is perfect for hosting any kind of event filled with grandiose.",
+          "Ashokraj Resort And Farms, is a wedding venue personifying brilliance.It is perfect for hosting any kind of event.",
         pricePerGuest: 580,
         rating: 4.5,
         features: ["Banquet Hall", "Accommodation: 150", "Outdoor Space"],
@@ -62,7 +62,6 @@ const venues = {
     ]
   }
 };
-
 const stateSelect = document.getElementById("state-select");
 const citySelect = document.getElementById("city-select");
 const venueList = document.getElementById("venue-list");
