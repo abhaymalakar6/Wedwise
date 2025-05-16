@@ -31,7 +31,7 @@
         <input type="password" name="password" placeholder="Password" required />
         <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
         
-        <button type="submit" id="submitButton"  onclick="window.location.href='index.html'">Register</button>
+        <button type="submit" id="submitButton">Register</button>
         <p class="login-redirect">Already have an account? <a href="login.html">Login here</a></p>
       </form>
     </div>
@@ -93,6 +93,61 @@
       alert("Registered successfully as a Customer!");
       // Redirect or API call goes here
     });
+   
+  document.getElementById('registerForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const role = document.getElementById('role').value;
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, password, role })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert('✅ Registered Successfully');
+        window.location.href = 'login.html'; // redirect to login page
+      } else {
+        alert('❌ ' + data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert('❌ Error while registering.');
+    }
+  });
+
+if (response.ok) {
+  alert('✅ Registered Successfully');
+  console.log('Redirecting to login page...');
+  window.location.href = 'login.html'; // update this if needed
+}
+
+document.getElementById('registerVendorForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const businessName = document.getElementById('businessName').value;
+  const serviceType = document.getElementById('serviceType').value;
+
+  const res = await fetch('/register-vendor', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, password, businessName, serviceType })
+  });
+
+  const data = await res.json();
+  alert(data.message);
+});
+
   </script>
 </body>
 </html>

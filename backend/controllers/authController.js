@@ -1,70 +1,60 @@
-// controllers/authController.js
-const User = require('./User');
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import Customer from '../models/Customer.js';
+import Vendor from '../models/Vendor.js';
 
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+// Register Customer
+export const registerCustomer = async (req, res) => {
+  const { name, email, password } = req.body;
 
-const register = async (req, res) => {
   try {
-    const { role, fullName, email, phone, password, serviceType } = req.body;
+    const exists = await Customer.findOne({ email });
+    if (exists) return res.status(400).json({ message: 'Customer already exists' });
 
-    // Check if user already exists
-    const existing = await User.findOne({ email });
-    if (existing) return res.status(400).json({ message: 'Email already registered' });
-
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
+    const customer = new Customer({ name, email, password: hashedPassword });
 
-    // Create new user
-    const newUser = new User({
-      role,
-      fullName,
-      email,
-      phone,
-      password: hashedPassword,
-      serviceType: role === 'vendor' ? serviceType : undefined
-    });
-
-    await newUser.save();
-
-    res.status(201).json({ message: 'Registered successfully' });
+    await customer.save();
+    res.status(201).json({ message: 'Customer registered successfully' });
   } catch (err) {
-    res.status(500).json({ message: 'Registration failed', error: err.message });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 };
 
-const login = async (req, res) => {
+// Register Vendor
+export const registerVendor = async (req, res) => {
+  const { name, email, password, businessName, serviceType } = req.body;
+
   try {
-    const { email, password } = req.body;
+    const exists = await Vendor.findOne({ email });
+    if (exists) return res.status(400).json({ message: 'Vendor already exists' });
 
-    // Find user
-    const user = await User.findOne({ email });
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const vendor = new Vendor({ name, email, password: hashedPassword, businessName, serviceType });
 
-    // Check password
+    await vendor.save();
+    res.status(201).json({ message: 'Vendor registered successfully' });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+
+// Shared Login
+export const loginUser = async (req, res) => {
+  const { email, password, role } = req.body;
+
+  try {
+    const model = role === 'vendor' ? Vendor : Customer;
+    const user = await model.findOne({ email });
+
+    if (!user) return res.status(400).json({ message: 'User not found' });
+
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
 
-    // Create token
-    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
-      expiresIn: '1d'
-    });
-
-    res.status(200).json({
-      message: 'Login successful',
-      token,
-      user: {
-        id: user._id,
-        role: user.role,
-        fullName: user.fullName,
-        email: user.email,
-        phone: user.phone,
-        serviceType: user.serviceType
-      }
-    });
+    const token = jwt.sign({ id: user._id, role }, process.env.JWT_SECRET, { expiresIn: '1d' });
+    res.status(200).json({ message: 'Login successful', token });
   } catch (err) {
-    res.status(500).json({ message: 'Login failed', error: err.message });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 };
-
-module.exports = { register, login };
