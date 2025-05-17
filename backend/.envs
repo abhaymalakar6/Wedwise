@@ -1,4 +1,0 @@
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/wedwise
-JWT_SECRET=JWT_SECRET=fj4f83j28fkjf8wjf93jfj2k3
-
