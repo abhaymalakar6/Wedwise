@@ -14,6 +14,11 @@ function selectRole(role) {
   }
 }
 
+// Show only customer registration by default
+window.onload = () => {
+  document.getElementById("vendor-link").style.display = "none";
+};
+
 
 
 
