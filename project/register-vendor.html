@@ -91,49 +91,7 @@
       // Redirect or API call goes here
       window.location.href = 'vendor-profile.html';
     });
-    document.getElementById('vendorRegisterForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    const res = await fetch('http://localhost:5000/api/auth/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, password, role: 'vendor' }) // include role
-    });
-
-    const data = await res.json();
-    if (res.ok) {
-      alert('Registration successful!');
-      window.location.href = 'login.html'; // redirect to login
-    } else {
-      alert(data.error || 'Registration failed');
-    }
-  });
- if (response.ok) {
-  alert('✅ Registered Successfully');
-  console.log('Redirecting to login page...');
-  window.location.href = 'login.html'; // update this if needed
-}
-document.getElementById('registerVendorForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const businessName = document.getElementById('businessName').value;
-  const serviceType = document.getElementById('serviceType').value;
-
-  const res = await fetch('/register-vendor', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, email, password, businessName, serviceType })
-  });
-
-  const data = await res.json();
-  alert(data.message);
-});
   </script>
 </body>
 </html>
