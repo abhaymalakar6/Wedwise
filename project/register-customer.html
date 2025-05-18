@@ -94,7 +94,49 @@
       // Redirect or API call goes here
     });
    
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
+  const res = await fetch("http://localhost:5000/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const data = await res.json();
+  if (res.ok) {
+    localStorage.setItem("token", data.token);
+    alert("Login success");
+    window.location.href = "/vendor-profile.html";
+  } else {
+    alert(data.message || "Login failed");
+  }
+});
+// Example for vendor registration
+document.querySelector("#vendorRegisterForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = {
+    role: "vendor",
+    name: document.querySelector("#name").value,
+    email: document.querySelector("#email").value,
+    phone: document.querySelector("#phone").value,
+    businessName: document.querySelector("#businessName").value,
+    city: document.querySelector("#city").value,
+    password: document.querySelector("#password").value,
+  };
+
+  const res = await fetch("http://localhost:5000/api/auth/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  alert(result.message || result.error);
+});
   </script>
 </body>
 </html>
