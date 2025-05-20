@@ -46,5 +46,10 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
     });
 });
 
-
-
+document.addEventListener('DOMContentLoaded', () => {
+  const msg = localStorage.getItem('registerSuccess');
+  if (msg) {
+    alert(msg);  // Or you can show this in a dedicated div on the page
+    localStorage.removeItem('registerSuccess');
+  }
+});

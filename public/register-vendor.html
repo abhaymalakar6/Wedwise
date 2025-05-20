@@ -13,24 +13,14 @@
       <h1>Vendor Registration</h1>
       <p>Join WedWise and reach thousands of wedding clients!</p>
       
-      <form id="vendorRegisterForm">
-        <input type="email" placeholder="Business Email" required />
-      
-        <div class="phone-otp-wrapper">
-          <input type="tel" name="phone" id="phoneInput" placeholder="Phone Number" required />
-        </div>
- <!---
-        <div id="otpSection" style="display: none;">
-          <input type="text" id="otpInput" placeholder="Enter OTP" required />
-          <button type="button" id="verifyOtpButton">Verify OTP</button>
-        </div>
---> 
-        <input type="password" placeholder="Password" required />
-        <input type="password" placeholder="Confirm Password" required />
-        
-        <button type="submit" id="submitButton" disabled>Register</button>
-        <p class="login-redirect">Already have an account? <a href="login.html">Login here</a></p>
-      </form>
+    <form id="vendor-register-form" action="/api/customers/register" method="POST">
+
+  <input type="text" name="name" placeholder="Vendor Name" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <input type="password" name="password" placeholder="Password" required />
+  <button type="submit">Register</button>
+</form>
+
     </div>
 
     <div class="image-side">
@@ -114,6 +104,65 @@ document.querySelector("#vendorRegisterForm").addEventListener("submit", async (
   const result = await res.json();
   alert(result.message || result.error);
 });
+document.getElementById("vendor-register-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("abhi@gmail.com").value;
+  const phone = document.getElementById("9111879549").value;
+  const password = document.getElementById("abhi@2025").value;
+
+  try {
+    const response = await fetch("http://localhost:5000/api/vendors/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, phone, password })
+    });
+
+    const result = await response.json();
+    alert(result.message || "Vendor registered successfully!");
+  } catch (err) {
+    console.error(err);
+    alert("An error occurred.");
+  }
+});
+document.getElementById('vendor-register-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // Your OTP & validation logic here
+
+  // Prepare data from form inputs
+  const form = e.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const res = await fetch("http://localhost:5000/api/vendor/register", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name,
+    email,
+    password
+  })
+})
+
+
+    if (res.ok) {
+      alert('Registration successful!');
+      window.location.href = 'index.html';  // Redirect on success
+    } else {
+      const error = await res.text();
+      alert('Registration failed: ' + error);
+    }
+  } catch (err) {
+    alert('Error: ' + err.message);
+  }
+});
+
   </script>
 </body>
 </html>

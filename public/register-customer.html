@@ -13,27 +13,14 @@
       <h1>Customer Registration</h1>
       <p>Create your account to start planning your dream wedding with us!</p>
       
-      <form id="customerRegisterForm">
-        <input type="text" name="fullName" placeholder="Full Name" required />
-        <input type="email" name="email" placeholder="Email Address" required />
-        
-    <!----<div class="phone-otp-wrapper">
-  <input type="tel" name="phone" id="phoneInput" placeholder="Phone Number" required />
-  <button type="button" id="sendOtpButton">Send OTP</button>
-</div>
+      <form id="customer-register-form" action="/api/customers/register" method="POST">
 
+  <input type="text" name="name" placeholder="Name" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <input type="password" name="password" placeholder="Password" required />
+  <button type="submit">Register</button>
+</form>
 
-        <div id="otpSection" style="display: none;">
-          <input type="text" name="otp" id="otpInput" placeholder="Enter OTP" required />
-          <button type="button" id="verifyOtpButton">Verify OTP</button>
-        </div>
----> 
-        <input type="password" name="password" placeholder="Password" required />
-        <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
-        
-        <button type="submit" id="submitButton">Register</button>
-        <p class="login-redirect">Already have an account? <a href="login.html">Login here</a></p>
-      </form>
     </div>
 
     <div class="image-side">
@@ -42,7 +29,7 @@
   </div>
 
   <script>
-    let generatedOTP = "";
+      let generatedOTP = "";
     let otpVerified = false;
 
     document.getElementById("sendOtpButton").addEventListener("click", function () {
@@ -60,7 +47,7 @@
       alert("OTP sent successfully!");
     });
 
-    document.getElementById("verifyOtpButton").addEventListener("click", function () {
+  document.getElementById("verifyOtpButton").addEventListener("click", function () {
       const enteredOTP = document.getElementById("otpInput").value.trim();
       if (enteredOTP === generatedOTP) {
         otpVerified = true;
@@ -137,6 +124,56 @@ document.querySelector("#vendorRegisterForm").addEventListener("submit", async (
   const result = await res.json();
   alert(result.message || result.error);
 });
+document.getElementById("customer-register-form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("Abhay").value;
+  const email = document.getElementById("abhay1@gmail.com").value;
+  const password = document.getElementById("abhay@2025").value;
+
+  try {
+    const response = await fetch("http://localhost:5000/api/customers/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, email, password })
+    });
+
+    const result = await response.json();
+    alert(result.message || "Registration successful!");
+  } catch (err) {
+    console.error(err);
+    alert("An error occurred.");
+  }
+});
+ document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.querySelector("input[placeholder='Abhay']").value;
+    const email = document.querySelector("input[placeholder='abhay12@gmail.com']").value;
+    const password = document.querySelector("input[type='password']").value;
+
+    try {
+      const response = await fetch("http://localhost:5000/api/customers/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ Abhay, email, password })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("Registration successful!");
+        window.location.href = "/project/login-customer.html"; // or wherever you want to redirect
+      } else {
+        throw new Error(data.message || "Registration failed");
+      }
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  });
   </script>
 </body>
 </html>

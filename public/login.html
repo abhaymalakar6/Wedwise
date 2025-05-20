@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | WedWise</title>
+  <link rel="stylesheet" href="login.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Lora&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-image">
+        <img src="l-3.jpg" alt="Wedding Theme" />
+      </div>
+      <div class="login-content">
+        <h2>Welcome to <span>WedWise</span></h2>
+        <p>Please login to continue</p>
+
+        <div class="toggle-role">
+          <button id="customerBtn" class="active" onclick="selectRole('customer')">Customer</button>
+          <button id="vendorBtn" onclick="selectRole('vendor')">Vendor</button>
+        </div>
+
+        <form id="loginForm">
+          <input type="hidden" id="role" name="role" value="customer" />
+
+           <form id="loginForm">
+    <label>Email:</label>
+    <input type="email" id="email" required><br>
+
+    <label>Password:</label>
+    <input type="password" id="password" required><br>
+
+    <button type="submit">Login</button>
+           </form>
+<p id="message"></p>
+
+         
+            <p>Don't have an account?</p>
+            <div class="account-buttons">
+              <a href="register-customer.html" id="customer-link">Register as Customer</a>
+              <a href="register-vendor.html" id="vendor-link">Register as Vendor</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+ <script>
+  function selectRole(role) {
+  selectedRole = role;
+
+  document.getElementById("customerBtn").classList.remove("active");
+  document.getElementById("vendorBtn").classList.remove("active");
+
+  document.getElementById("customer-link").style.display = role === 'customer' ? 'inline-block' : 'none';
+  document.getElementById("vendor-link").style.display = role === 'vendor' ? 'inline-block' : 'none';
+
+  if (role === 'customer') {
+    document.getElementById("customerBtn").classList.add("active");
+  } else {
+    document.getElementById("vendorBtn").classList.add("active");
+  }
+}
+
+// Show only customer registration by default
+window.onload = () => {
+  document.getElementById("vendor-link").style.display = "none";
+};
+
+
+
+
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const res = await fetch("http://localhost:5000/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const data = await res.json();
+  if (res.ok) {
+    localStorage.setItem("token", data.token);
+    alert("Login success");
+    window.location.href = "/vendor-profile.html";
+  } else {
+    alert(data.message || "Login failed");
+  }
+});
+
+
+    const form = document.getElementById('loginForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      console.log('Form submitted');
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      console.log('Email:', email);
+
+      try {
+        const response = await fetch('http://localhost:5000/api/customers/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          message.textContent = 'Login successful!';
+        } else {
+          message.textContent = data.message;
+        }
+      } catch (err) {
+        message.textContent = 'Error connecting to server';
+        console.error(err);
+      }
+    });
+  </script>
+  <script src="login.js"></script>
+</body>
+</html>
