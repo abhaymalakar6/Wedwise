@@ -74,7 +74,7 @@ nav ul li {
     
 }
 
-.auth-buttons button {
+.auth-buttons a {
     padding: 10px 15px;
     border: none;
     border-radius: 8px;
@@ -84,7 +84,7 @@ nav ul li {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.auth-buttons button:hover {
+.auth-buttons a:hover {
     opacity: 0.85;
 }
 /* =========================

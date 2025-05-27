@@ -124,15 +124,15 @@ document.querySelector("#vendorRegisterForm").addEventListener("submit", async (
   const result = await res.json();
   alert(result.message || result.error);
 });
-document.getElementById("customer-register-form").addEventListener("submit", async function(e) {
+document.getElementById("customer-register-form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  const name = document.getElementById("Abhay").value;
-  const email = document.getElementById("abhay1@gmail.com").value;
-  const password = document.getElementById("abhay@2025").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
 
   try {
-    const response = await fetch("http://localhost:5000/api/customers/register", {
+    const res = await fetch("http://localhost:5000/api/customers/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -140,13 +140,24 @@ document.getElementById("customer-register-form").addEventListener("submit", asy
       body: JSON.stringify({ name, email, password })
     });
 
-    const result = await response.json();
-    alert(result.message || "Registration successful!");
+    if (res.ok) {
+      const data = await res.json();
+
+      // 🔐 Save login status
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userRole", "customer");
+
+      // Redirect to homepage
+      window.location.href = "/index.html";
+    } else {
+      const errorData = await res.json();
+      alert("Registration failed: " + (errorData.message || "Unknown error"));
+    }
   } catch (err) {
-    console.error(err);
-    alert("An error occurred.");
+    alert("Server error: " + err.message);
   }
 });
+
  document.querySelector("form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -174,6 +185,12 @@ document.getElementById("customer-register-form").addEventListener("submit", asy
       alert("Error: " + error.message);
     }
   });
+
+  // After successful registration (inside fetch/axios success)
+localStorage.setItem("isLoggedIn", "true");
+localStorage.setItem("userRole", "customer");
+window.location.href = "/index.html";
+
   </script>
 </body>
 </html>

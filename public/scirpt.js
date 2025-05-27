@@ -53,3 +53,20 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('registerSuccess');
   }
 });
+
+ window.addEventListener("DOMContentLoaded", () => {
+    const loginBtn = document.getElementById("loginBtn");
+
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      loginBtn.textContent = "Logout";
+      loginBtn.href = "#";
+      loginBtn.addEventListener("click", () => {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("userRole");
+        window.location.reload();
+      });
+    } else {
+      loginBtn.textContent = "Login";
+      loginBtn.href = "login.html";
+    }
+  });

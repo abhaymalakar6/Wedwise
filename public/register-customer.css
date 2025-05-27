@@ -114,7 +114,7 @@ form button:hover {
 
 .image-side img {
   width: 100%;
-  height: 100%;
+  height: 500px;
   object-fit: cover;
 }
 

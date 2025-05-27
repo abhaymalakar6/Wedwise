@@ -65,6 +65,32 @@
     <p><strong>Total Price: ₹<span id="total-price">0</span></strong></p>
   </div>
 </div>
+<div class="modal" id="payment-modal">
+  <div class="modal-content" style="max-width: 500px; background-color: #fff8f0; border-radius: 20px; padding: 30px; border: 3px solid #f4d9b3;">
+    <span class="close-button" id="close-payment-modal" style="font-size: 24px; float: right; cursor: pointer;">&times;</span>
+    <h2 style="text-align: center; color: #8a4f2c; font-family: 'Poppins', sans-serif;">Confirm Your Payment</h2>
+    <div id="payment-summary" style="margin-top: 20px; font-size: 16px; color: #333;"></div>
+
+    <hr style="margin: 20px 0; border-top: 2px dashed #d8b894;">
+
+    <div class="payment-options" style="text-align: center;">
+      <p style="color: #5c3924; font-weight: bold;">Scan QR to Pay</p>
+      <img src="Qr.jpg" alt="Scan QR" style="width: 180px; margin-bottom: 10px; border: 2px solid #d8b894; border-radius: 12px;" />
+
+      <p style="margin: 10px 0; color: #5c3924;">or pay using:</p>
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <button class="pay-btn">UPI</button>
+        <button class="pay-btn">Credit Card</button>
+        <button class="pay-btn">Debit Card</button>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <button id="confirm-payment-btn" class="confirm-btn">Proceed & Pay</button>
+    </div>
+  </div>
+</div>
+
   <script src="venue.js"></script>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
